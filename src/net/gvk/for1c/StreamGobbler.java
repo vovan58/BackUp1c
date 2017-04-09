@@ -9,7 +9,7 @@ import java.util.ArrayList;
 class StreamGobbler extends Thread
 {
     InputStream is;
-    String type;
+    //String type;
     String codepage;
     ArrayList<String> stdmsg;
     
@@ -17,17 +17,10 @@ class StreamGobbler extends Thread
 		return stdmsg;
 	}
 
-	StreamGobbler(InputStream is, String type)
+	StreamGobbler(InputStream is, String codepage)
     {
         this.is = is;
-        this.type = type;
-        this.codepage = new String ("Cp866"); //("UTF-8");
-        String osName = System.getProperty("os.name" );
-        String osNameWin = osName.substring(0, 6);
-        // System.getenv("ComSpec");
-        if( osNameWin.equals( "Windows" )) {
-        	this.codepage = new String("Cp866");
-        }
+        this.codepage = codepage; 
         stdmsg = new ArrayList<String>();
     }
     
@@ -36,11 +29,10 @@ class StreamGobbler extends Thread
         try
         {
         	// gvk ++
-            InputStreamReader isr = new InputStreamReader(is,codepage); // ,"UTF-8");
+            InputStreamReader isr = new InputStreamReader(is,codepage); 
             BufferedReader br = new BufferedReader(isr);
             String line = null;
             while ( (line = br.readLine()) != null)
-                //System.out.println(type + ">" + line); 
             	stdmsg.add(line);
             } catch (IOException ioe)
               {
