@@ -1,6 +1,7 @@
 package net.gvk.for1c;
 
 import java.io.File;
+import java.util.Map;
 
 public class Execute1Crac {
 	private static String path_rac;
@@ -66,8 +67,12 @@ public class Execute1Crac {
 	}
 	
 	public static String search_last_1c() {
-		// ищет последнюю установленную версию 1с
-		String last_path = "";
+		// ищет последнюю установленную версию 1с пока только среди 32 битных
+		//String last_path = "";
+		String last_path = "C:\\Program Files (x86)\\1cv8\\8.3.11.2899\\bin\\";
+		//Map <String,?> mapenv = System.getenv();
+		//String cur_path = mapenv.get("ProgramFiles(x86)") + "\1cv8";
+		
 		return last_path;
 	}
 	
@@ -79,6 +84,7 @@ public class Execute1Crac {
         if( os_name.startsWith("Windows"))
         {
         	setName_rac("rac.exe");
+        	setPath_rac(search_last_1c());
         }
         else if (os_name.equals( "Linux")) {
         	setName_rac("rac");
