@@ -25,6 +25,10 @@ public class CommandExecuter {
 		return errMessages;
 	}
 	
+	public void setFullPathCom(String fullPathCom) {
+		this.fullPathCom = fullPathCom;
+	}
+
 	public String getFullPathCom() {
 		return fullPathCom;
 	}
@@ -124,7 +128,7 @@ public class CommandExecuter {
         exitVal = proc.waitFor();
         errMessages = errorGobbler.getStdMsg();
         stdMessages = outputGobbler.getStdMsg();
-//        System.out.println("ExitValue: " + exitVal);
+        //System.out.println("ExitValue: " + exitVal);
    
     } catch (Throwable t)
       {
