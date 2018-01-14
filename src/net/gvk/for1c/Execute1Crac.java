@@ -308,6 +308,15 @@ public class Execute1Crac {
 			execute(args1);
 			// анализируем ответ
 			if (exitVal == 0) {
+				ArrayList<String> strset = getStdmsg();
+				String last_cluster = new String("");
+				for (int i = 0; i < strset.size(); i++) {
+					String curstr = strset.get(i);
+					
+				}
+				
+				
+				
 				
 			} else {
 				System.err.print("ошибочное имя кластера :" + getCluster_name());
